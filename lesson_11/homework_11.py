@@ -85,12 +85,25 @@ def process_orders(*orders, discount=0):
     return total, discounted_total
 
 process_orders(100, 200, 300, discount=10)
-####################TASK_13##############################
+####################TASK_12##############################
 def merge_lists(*lists):
+    result_lst = []
     for i in lists:
-        print(i)
+        test_pararm = i
+        result_lst.extend(test_pararm)
+    return result_lst
+####################TASK_13##############################
+def merge_dicts(*dicts):
+    merged_dict = {}
+    for d in dicts:
+        merged_dict.update(d)
+    return merged_dict
 
 
+d1 = {"a": 1, "b": 2}
+d2 = {"b": 3, "c": 4}
+d3 = {"c": 5, "d": 6}
+print(merge_dicts(d1, d2, d3))
 
 
 
