@@ -1,11 +1,14 @@
-def merge_dicts(*dicts):
-    merged_dict = {}
-    for d in dicts:
-        merged_dict.update(d)
-    return merged_dict
+def counter(start=0):
+    def inner():
+        nonlocal start
+        start += 1
+        return start
+    return inner
 
+c1 = counter(5)
+c2 = counter()
 
-d1 = {"a": 1, "b": 2}
-d2 = {"b": 3, "c": 4}
-d3 = {"c": 5, "d": 6}
-print(merge_dicts(d1, d2, d3))
+print(c1())  # 6
+print(c1())  # 7
+print(c2())  # 1
+print(c2())  # 2
