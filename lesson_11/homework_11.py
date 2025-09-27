@@ -54,8 +54,41 @@ def compare_strings(s1: str, s2: str, ignore_case=True, ignore_spaces=True):
         s2 = s2.replace(" ", "")
     return s1 == s2
 ####################TASK_10##############################
+def summarize(*args) -> int:
+    total = 0
+    for i in args:
+        if  isinstance(i, (int , float)):
+            total += i
+    return total
+####################TASK_11##############################
+def create_profile(name, age, **extra):
+    print(f"""
+Профиль пользователя:  
+Имя: {name}
+Возраст: {age}
+Дополнительная информация:
+"""
+  )
+    for key, value in extra.items():
+        print(key, value)
 
+create_profile("Иван", 30, city="Москва", job="Инженер")
+####################TASK_12##############################
+def process_orders(*orders, discount=0):
+    total = 0
+    discounted_total = 0
+    for order in orders:
+        total += order
+        discounted_total += order - order * discount / 100
+    print(f"Сумма заказа: {total}")
+    print(f"С учетом скидки: {discounted_total}")
+    return total, discounted_total
 
+process_orders(100, 200, 300, discount=10)
+####################TASK_13##############################
+def merge_lists(*lists):
+    for i in lists:
+        print(i)
 
 
 
